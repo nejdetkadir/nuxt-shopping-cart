@@ -1,8 +1,8 @@
 # nuxt shopping cart
 An app that showcases how to use Express and Session with NuxtJS for learning it
+![cover](doc/cover.jpg)
 
 ## Build Setup
-
 ```bash
 # install dependencies
 $ npm install
