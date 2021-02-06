@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 
 // Create express instance
 const app = express()
@@ -9,6 +10,10 @@ const items = require('./routes/items')
 const cart = require('./routes/cart')
 
 app.use(bodyParser.json())
+app.use(session({
+  secret: 'nuxt-shopping-cart'
+}))
+
 // Import API Routes
 app.use('/items', items)
 app.use('/cart', cart)

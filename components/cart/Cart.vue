@@ -1,20 +1,20 @@
 <template>
   <tr>
-    <td>1</td>
+    <td>{{item.name}}</td>
     <td>
       <v-btn icon text color="green" @click="changeValue(true)">
         <v-icon>
           add
         </v-icon>
       </v-btn>
-      {{count}}
+      {{item.count}}
       <v-btn icon text color="red" @click="changeValue(false)">
         <v-icon>
           remove
         </v-icon>
       </v-btn>
     </td>
-    <td>$1</td>
+    <td>${{item.totalPrice}}</td>
     <td><v-btn color="red" fab class="white--text" x-small>
       <v-icon small>restore_from_trash</v-icon>
     </v-btn></td>
@@ -38,6 +38,12 @@ export default {
           this.count--
         }
       }
+    }
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
   }
 }

@@ -13,7 +13,7 @@
           remove
         </v-icon>
       </v-btn>
-      <v-btn color="indigo" fab class="white--text" x-small>
+      <v-btn color="indigo" fab class="white--text" x-small @click="addToCart">
         <v-icon small>add_shopping_cart</v-icon>
       </v-btn>
     </td>
@@ -37,6 +37,9 @@ export default {
           this.count--
         }
       }
+    },
+    addToCart() {
+      this.$store.dispatch("addToCard", {count: this.count, ...this.item})
     }
   },
   props: {

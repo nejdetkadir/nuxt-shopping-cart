@@ -3,7 +3,15 @@ const { Router } = require('express')
 const router = Router()
 
 router.get("/", (req, res) => {
+  let cart = req.session.cart ? req.session.cart : []
+  let totalPrice = 0.0
+  cart.forEach(i => {
+    totalPrice+=i.totalPrice
+  })
+
   res.status(200).json({
+    totalPrice,
+    cart,
     items: [
       {
         id: 1,

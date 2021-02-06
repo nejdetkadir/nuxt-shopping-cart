@@ -20,8 +20,13 @@ export const actions = {
   async nuxtServerInit ({commit}) {
     let res = await this.$axios.get("/items")
     await commit("setItems", res.data.items)
+    await commit("setCart", res.data.cart)
+    await commit("setTotalPrice", res.data.totalPrice)
   },
-  addToCard() {
+  async addToCard({commit}, item) {
+    let res = await this.$axios.post('/cart/add', {item})
+    await commit("setCart", res.data.cart)
+    await commit("setTotalPrice", res.data.totalPrice)
 
   },
   removeFromCard() {

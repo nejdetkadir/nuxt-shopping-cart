@@ -16,7 +16,7 @@
       </tr>
       </thead>
       <tbody>
-        <Card/>
+        <Cart v-for="item in cart" :item="item" :key="item.id"/>
       </tbody>
     </template>
   </v-simple-table>
@@ -24,7 +24,13 @@
 
 <script>
 export default {
-name: "cardTable"
+  name: "cardTable",
+  props: {
+    cart: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 
