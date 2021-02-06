@@ -6,6 +6,14 @@
     </v-col>
     <v-col cols="12" sm="5" md="5" lg="5" xl="5">
       <h1>Shopping Cart (Total : ${{totalPrice}})</h1>
+      <v-alert
+        border="left"
+        color="indigo"
+        dark
+        v-if="cart.length == 0"
+      >
+        You didn't add to cart any item
+      </v-alert>
       <CartTable :cart="cart"/>
     </v-col>
   </v-row>
