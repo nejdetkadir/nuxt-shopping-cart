@@ -31,7 +31,7 @@ router.post("/add", (req, res) => {
 router.post('/change', (req, res, next) => {
   let cart = req.session.cart ? req.session.cart : []
   let index = cart.findIndex(value => value.id === req.body.item.id) // check item
-
+  console.log(JSON.stringify(req.body))
   req.body.type ? cart[index].count++ : cart[index].count--
   if (cart[index].count <= 0) {
     cart.splice(index)
@@ -52,7 +52,7 @@ router.post('/change', (req, res, next) => {
   })
 })
 
-router.post('/remove', (req, res) => {
+router.delete('/remove', (req, res) => {
   let cart = req.session.cart ? req.session.cart : []
   let index = cart.findIndex(value => value.id === req.body.id) // check item
 
