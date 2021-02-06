@@ -17,8 +17,9 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtServerInit ({commit}) {
-    //commit("setItems", res.data)
+  async nuxtServerInit ({commit}) {
+    let res = await this.$axios.get("/items")
+    await commit("setItems", res.data.items)
   },
   addToCard() {
 

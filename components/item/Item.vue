@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>1<span class="price">$117</span></td>
+    <td>{{item.name}}<span class="price">${{item.price}}</span></td>
     <td>
       <v-btn icon text color="green" @click="changeValue(true)">
         <v-icon>
@@ -37,6 +37,12 @@ export default {
           this.count--
         }
       }
+    }
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
   }
 }

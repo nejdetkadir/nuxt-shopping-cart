@@ -15,7 +15,7 @@
       </tr>
       </thead>
       <tbody>
-        <Item/>
+        <Item v-for="item in items" :item="item" :key="item.id"/>
       </tbody>
     </template>
   </v-simple-table>
@@ -23,7 +23,13 @@
 
 <script>
 export default {
-name: "ItemTable"
+  name: "ItemTable",
+  props: {
+    items: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 

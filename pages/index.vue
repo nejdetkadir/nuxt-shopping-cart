@@ -2,7 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="5" md="5" lg="5" xl="5">
       <h1>Items</h1>
-      <ItemTable/>
+      <ItemTable :items="items"/>
     </v-col>
     <v-col cols="12" sm="5" md="5" lg="5" xl="5">
       <h1>Shopping Cart</h1>
@@ -15,7 +15,11 @@
 import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure you are using css-loader
 
 export default {
-
+  computed: {
+    items() {
+      return this.$store.getters.getItems
+    }
+  }
 }
 </script>
 
