@@ -24,18 +24,20 @@
 <script>
 export default {
   name: "Card",
-  data() {
-    return {
-      count: 1,
-    }
-  },
   methods: {
     changeValue(val) {
       if (val) {
-        this.count++
+        //this.item.count++
+        this.$store.dispatch("changeItemCount", {
+          type: val,
+          item: this.item
+        })
       } else {
-        if (this.count > 1) {
-          this.count--
+        if (this.item.count >= 0) {
+          this.$store.dispatch("changeItemCount", {
+            type: val,
+            item: this.item
+          })
         }
       }
     }
@@ -45,7 +47,7 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
 }
 </script>
 

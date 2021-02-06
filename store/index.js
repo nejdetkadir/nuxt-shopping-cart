@@ -32,8 +32,10 @@ export const actions = {
   removeFromCard() {
 
   },
-  changeItemCount() {
-
+  async changeItemCount({commit}, data) {
+    let res = await this.$axios.post('/cart/change', data)
+    commit("setCart", res.data.cart)
+    commit("setTotalPrice", res.data.totalPrice)
   }
 }
 
