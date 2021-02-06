@@ -1,6 +1,24 @@
 # nuxt shopping cart
-An app that showcases how to use Express and Session with NuxtJS for learning it
+An app that showcases how to use Express and Session with NuxtJS for learning it. Live demo
+
 ![cover](doc/cover.jpg)
+
+# Preview
+![preview](doc/preview.gif)
+
+# API endpoints
+### Items
+| Route | HTTP Verb	 | Body	 | Description	 |
+| --- | --- | --- | --- |
+| /api/items | `GET` | Empty | List all items |
+
+### Cart
+| Route | HTTP Verb	 | Body	 | Description	 |
+| --- | --- | --- | --- |
+| /api/cart/add | `POST` | {"count":1,"id":1,"name":"Broccoli","price":9} | Add item to cart |
+| /api/cart/change | `POST` | {"type":true,"item":{"count":2,"id":1,"name":"Broccoli","price":9,"totalPrice":18}} | Change item count from session and calculate total price |
+| /api/cart/remove | `DELETE` | {"id":1} | Remove item by id from session and calculate total price |
+
 
 ## Build Setup
 ```bash
