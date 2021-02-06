@@ -52,4 +52,25 @@ router.post('/change', (req, res, next) => {
   })
 })
 
+router.post('/remove', (req, res) => {
+  let cart = req.session.cart ? req.session.cart : []
+  let index = cart.findIndex(value => value.id === req.body.id) // check item
+
+  if(index > -1) {
+    cart.splice(index)
+  }
+
+  req.session.cart = cart // set cart to session
+
+  let totalPrice = 0.0
+  cart.forEach(i => {
+    totalPrice+=i.totalPrice
+  })
+
+  res.status(200).json({
+    cart,
+    totalPrice
+  })
+})
+
 module.exports = router

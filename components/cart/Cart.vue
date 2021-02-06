@@ -15,7 +15,7 @@
       </v-btn>
     </td>
     <td>${{item.totalPrice}}</td>
-    <td><v-btn color="red" fab class="white--text" x-small>
+    <td><v-btn color="red" fab class="white--text" x-small @click="removeItem">
       <v-icon small>restore_from_trash</v-icon>
     </v-btn></td>
   </tr>
@@ -40,6 +40,9 @@ export default {
           })
         }
       }
+    },
+    removeItem() {
+      this.$store.dispatch("removeFromCard", this.item.id)
     }
   },
   props: {
